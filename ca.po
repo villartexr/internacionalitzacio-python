@@ -19,34 +19,34 @@ msgstr ""
 
 #: eightpuzzle.py:136
 msgid "up"
-msgstr ""
+msgstr "Amunt"
 
 #: eightpuzzle.py:140
 msgid "down"
-msgstr ""
+msgstr "Avall"
 
 #: eightpuzzle.py:144
 msgid "left"
-msgstr ""
+msgstr "Esquerra"
 
 #: eightpuzzle.py:148
 msgid "right"
-msgstr ""
+msgstr "Dreta"
 
 #: eightpuzzle.py:282
 msgid "A random puzzle:"
-msgstr ""
+msgstr "Un puzzle aleatori"
 
 #: eightpuzzle.py:287
 #, python-format
 msgid "BFS found a path of %d moves: "
-msgstr ""
+msgstr "BFS trova el cami amb %d moviments: "
 
 #: eightpuzzle.py:292
 #, python-format
 msgid "After %d moves:  "
-msgstr ""
+msgstr "Després de %d moviments: "
 
 #: eightpuzzle.py:295
 msgid "Press return for the next state..."
-msgstr ""
+msgstr "Enter per passar al següent estat..."
