@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+# -*- coding: utf-8 -*-
 # eightpuzzle.py
 # --------------
 # Licensing Information:  You are free to use or extend these projects for 
@@ -15,7 +18,13 @@
 
 import search
 import random
-
+import gettext
+import os
+import sys 
+appdir = os.path.dirname(sys.argv[0])
+appdir = os.path.abspath(appdir)
+localedir = os.path.join(appdir, "locales")
+gettext.install("eightpuzzle", localedir)
 # Module Classes
 
 class EightPuzzleState:
@@ -124,15 +133,19 @@ class EightPuzzleState:
         if(move == 'up'):
             newrow = row - 1
             newcol = col
+            move=_('up')
         elif(move == 'down'):
             newrow = row + 1
             newcol = col
+            move=_('down')
         elif(move == 'left'):
             newrow = row
             newcol = col - 1
+            move=_('left')
         elif(move == 'right'):
             newrow = row
             newcol = col + 1
+            move=_('right')
         else:
             raise "Illegal Move"
 
@@ -238,7 +251,7 @@ def loadEightPuzzle(puzzleNumber):
 
       puzzleNumber can range from 0 to 5.
 
-      >>> print loadEightPuzzle(0)
+      >>> print __ loadEightPuzzle(0)
       -------------
       | 1 |   | 2 |
       -------------
@@ -264,19 +277,20 @@ def createRandomEightPuzzle(moves=100):
     return puzzle
 
 if __name__ == '__main__':
+    
     puzzle = createRandomEightPuzzle(25)
-    print('A random puzzle:')
-    print(puzzle)
-
+    print _('A random puzzle:')
+    print (puzzle)
     problem = EightPuzzleSearchProblem(puzzle)
     path = search.breadthFirstSearch(problem)
-    print('BFS found a path of %d moves: %s' % (len(path), str(path)))
+    p=len(path)
+    print _('BFS found a path of %d moves: ') %p
     curr = puzzle
     i = 1
     for a in path:
         curr = curr.result(a)
-        print('After %d move%s: %s' % (i, ("", "s")[i>1], a))
-        print(curr)
+        print _('After %d moves:  ' )% i + _(a)
+        print (curr)
 
-        raw_input("Press return for the next state...")   # wait for key stroke
+        raw_input(_("Press return for the next state..."))   # wait for key stroke
         i += 1
