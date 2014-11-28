@@ -21,10 +21,9 @@ import random
 import gettext
 import os
 import sys 
-appdir = os.path.dirname(sys.argv[0])
-appdir = os.path.abspath(appdir)
-localedir = os.path.join(appdir, "locales")
-gettext.install("eightpuzzle", localedir)
+
+gettext.install(domain='eightpuzzle', localedir='locales')
+
 # Module Classes
 
 class EightPuzzleState:
